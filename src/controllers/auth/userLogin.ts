@@ -8,6 +8,7 @@ const userLogin : RequestHandler = async (req, res) => {
         const username=req.body.username
         const password=req.body.password
 
+
         const userEntry = await db.query('SELECT * FROM "user" WHERE username=($1)', [username])
         const hashedPassword: string = userEntry.rows[0].hashed_pw
         const user_id:string=userEntry.rows[0].user_id

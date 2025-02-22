@@ -12,6 +12,7 @@ import auth from "./routes/auth";
 import character from "./routes/character";
 import item from "./routes/item";
 import quest from "./routes/quest";
+import steps from "./routes/steps";
 
 const app = express()
 
@@ -34,6 +35,7 @@ app.use('/auth',auth)
 app.use('/character',character)
 app.use('/item',item)
 app.use('/quest',quest)
+app.use('/steps',steps)
 
 // Apply error handling last
 app.use(fourOhFour)
