@@ -9,6 +9,6 @@ const character = express.Router()
 
 character.post('/createCharacter', jwtAuth, createCharacter)
 character.post('/assignStats',jwtAuth,assignStats)
-character.post('/getCharacter',jwtAuth,getCharacterByUserId)
+character.post('/getCharacterByUserId',jwtAuth,getCharacterByUserId)
 
 export default character

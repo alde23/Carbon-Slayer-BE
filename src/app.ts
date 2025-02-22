@@ -10,6 +10,8 @@ import fourOhFour from './middleware/fourOhFour';
 import root from './routes/root';
 import auth from "./routes/auth";
 import character from "./routes/character";
+import item from "./routes/item";
+import quest from "./routes/quest";
 
 const app = express()
 
@@ -30,6 +32,8 @@ app.use(morgan('tiny'))
 app.use('/', root)
 app.use('/auth',auth)
 app.use('/character',character)
+app.use('/item',item)
+app.use('/quest',quest)
 
 // Apply error handling last
 app.use(fourOhFour)

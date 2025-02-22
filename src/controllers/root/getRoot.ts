@@ -9,15 +9,10 @@ import db from "../../../db";
 const getRoot: RequestHandler = async (_req, res) => {
     const users= await db.query('SELECT * FROM user')
 
-    console.log(users)
-
-    console.log(users.rowCount)
-
     const username:string="BigDog12"
 
     const userExists= await db.query('SELECT * FROM "user" WHERE "username"=($1)',[username])
 
-    console.log(userExists)
 
     res.status(200).json({
 

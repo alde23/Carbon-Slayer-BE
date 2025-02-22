@@ -12,7 +12,8 @@ const assignStats : RequestHandler = async (req, res) => {
         const checkFreePoints=await db.query('SELECT * FROM "character" WHERE "user_id"=$1',[userId])
 
         const sumOfAddPoints=addAgilityPoints+addArmorPoints+addAttackPoints+addHealthPoints
-        if(checkFreePoints.rows[0].free_points<=sumOfAddPoints){
+        console.log(sumOfAddPoints,checkFreePoints.rows[0].free_points)
+        if(checkFreePoints.rows[0].free_points>=sumOfAddPoints){
             const currentHealthPoints=checkFreePoints.rows[0].health_points
             const currentAttackPoints=checkFreePoints.rows[0].attack_points
             const currentAgilityPoints=checkFreePoints.rows[0].agility_points
@@ -20,7 +21,8 @@ const assignStats : RequestHandler = async (req, res) => {
             const currentFreePoints=checkFreePoints.rows[0].free_points
             const newFreePoints=currentFreePoints-sumOfAddPoints
 
-            const assignPoints=await db.query('UPDATE "character" SET "health_points"=$1,"attack_points"=$2,"agility_points"=$3,"armor_points"=$4,"free_points"=$5  WHERE "user_id"=$6', [addHealthPoints,addAttackPoints,addAgilityPoints,addArmorPoints,newFreePoints,userId])
+            const assignPoints=await db.query('UPDATE "character" SET "health_points"=$1,"attack_points"=$2,"agility_points"=$3,"armor_points"=$4,"free_points"=$5  WHERE "user_id"=$6',
+                [addHealthPoints+currentHealthPoints,addAttackPoints+currentAttackPoints,addAgilityPoints+currentAgilityPoints,addArmorPoints+currentArmorPoints,newFreePoints,userId])
 
             return res.status(200).send({"success":"Stat points assigned successfully"})
 
