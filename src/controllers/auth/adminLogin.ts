@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express'
 import {hashPassword, unHashPassword} from "../../utils/passwordGeneration";
-import {makeToken} from "../../utils/jwt";
+import {makeAdminToken, makeToken} from "../../utils/jwt";
 import db from "../../../db";
 
 const adminLogin : RequestHandler = async (req, res) => {
@@ -17,7 +17,7 @@ const adminLogin : RequestHandler = async (req, res) => {
         const user_id:string=adminLogin.rows[0].user_id
         const salt: string = hashedPassword.slice(-128)
         if (hashedPassword== unHashPassword(password, salt)) {
-            const jwtToken=makeToken(username,user_id)
+            const jwtToken=makeAdminToken(username,user_id)
             return res.status(200).send({"message":"Login successful","jwt":jwtToken})
         } else {
             res.statusCode = 422

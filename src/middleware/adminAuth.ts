@@ -17,22 +17,24 @@ export const adminAuth = async (req:Request, res:Response, next:NextFunction) =>
             const secret: string = process.env['JWT_SECRET']!
             const decoded= jwt.verify(token, secret) as JwtPayload;
 
+            console.log(decoded)
+
             req.body.username = decoded.username
             req.body.user_id = decoded.userid
 
-            const checkIfUserIsAdmin=await db.query('SELECT * FROM "user" where "user_id"=($1) AND "role=$2"',[req.body.user_id,'admin'])
+            const checkIfUserIsAdmin=await db.query('SELECT * FROM "user" where "user_id"=($1) AND "role"=$2',[req.body.user_id,'admin'])
 
             console.log(checkIfUserIsAdmin.rowCount)
 
             if (checkIfUserIsAdmin.rowCount==1){
                 next();
             }else{
-                res.status(403).send({"error":"Admin not logged in"})
+                return res.status(403).send({"error":"Admin not logged in"})
             }
         }
     } catch {
         res.statusCode = 403;
-        res.send();
+        return res.send();
         // res.json(errorHandler(res.statusCode));
         // next();
     }

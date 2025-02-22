@@ -26,12 +26,12 @@ export const jwtAuth = async (req:Request, res:Response, next:NextFunction) => {
             if (checkIfUserExists.rowCount==1){
                 next();
             }else{
-                res.status(403).send({"error":"user not logged in"})
+                return res.status(403).send({"error":"user not logged in"})
             }
         }
     } catch {
         res.statusCode = 403;
-        res.send();
+        return res.send();
         // res.json(errorHandler(res.statusCode));
         // next();
     }

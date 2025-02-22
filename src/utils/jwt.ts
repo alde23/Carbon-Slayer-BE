@@ -13,7 +13,7 @@ export const makeToken=(username:string, user_id:string)=>{
 }
 export const makeAdminToken=(username:string, user_id:string)=>{
     if(process.env['JWT_SECRET']){
-        const secret:string=process.env['JWT_SECRET']
+        const secret:string=process.env['JWT_SECRET']!
         const token = jwt.sign({ username, userid: user_id ,role: "admin"}, secret, {
             expiresIn: "1209600s",
         });
