@@ -13,9 +13,9 @@ const config = {
     port: process.env['PORT'] ?? 3000,
 
     clientCorsOrigins: {
-        'test': process.env['DEV_ORIGIN'] ?? '*',
-        'development': process.env['DEV_ORIGIN'] ?? '*',
-        'production': process.env['PROD_ORIGIN'] ?? 'none'
+        'test': '*',
+        'development': '*',
+        'production': '*'
     }
 }
 

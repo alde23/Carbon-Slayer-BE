@@ -23,7 +23,7 @@ app.use(cookieParser())
 
 app.use(cors({
     // @ts-ignore no-implicit-any
-    origin: config.clientCorsOrigins[config.nodeEnv] ?? '*'
+    origin: '*'
 }))
 
 app.use(helmet())
