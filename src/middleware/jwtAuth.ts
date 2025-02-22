@@ -21,8 +21,6 @@ export const jwtAuth = async (req:Request, res:Response, next:NextFunction) => {
 
             const checkIfUserExists=await db.query('SELECT * FROM "user" where "user_id"=($1)',[req.body.user_id])
 
-            console.log(checkIfUserExists.rowCount)
-
             if (checkIfUserExists.rowCount==1){
                 next();
             }else{
