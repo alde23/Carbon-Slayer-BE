@@ -8,6 +8,8 @@ import config from './config';
 import errorHandler from './middleware/errorHandler';
 import fourOhFour from './middleware/fourOhFour';
 import root from './routes/root';
+import auth from "./routes/auth";
+import character from "./routes/character";
 
 const app = express()
 
@@ -26,6 +28,8 @@ app.use(morgan('tiny'))
 
 // Apply routes before error handling
 app.use('/', root)
+app.use('/auth',auth)
+app.use('/character',character)
 
 // Apply error handling last
 app.use(fourOhFour)
