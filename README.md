@@ -9,7 +9,10 @@ Features:
 
   - User authentication & session management 
   - Tracks steps/walking data to reward players 
-  - Handles in-game currency & cosmetics 
+  - Handles in-game currency & cosmetics
+  - Compare stats with friends
+  - Compete on Leaderboards
+  - Daily goals
 
 --------
 ## How to Build
@@ -17,9 +20,9 @@ Features:
 Follow these steps to set up and run the backend locally.
 Clone the Repository
 
-git clone https://github.com/alde23/Synergy-Backend.git
+`git clone https://github.com/alde23/Synergy-Backend.git`
 
-cd Synergy-Backend
+`cd Synergy-Backend`
 
 Install Dependencies:
 
