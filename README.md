@@ -1,4 +1,4 @@
-Carbon Slayer - Backend
+## Carbon Slayer - Backend
 
 Carbon Slayer is a game that encourages reducing carbon emissions by rewarding players for walking instead of driving. 
 Users are presented with various incentives and challanges related to walking. Successfully meeting daily goals and maintaining streaks will reward users with Carbon Points and cosmetics.
@@ -12,8 +12,7 @@ Features:
   - Handles in-game currency & cosmetics 
 
 --------
-
-How to Build
+## How to Build
 
 Follow these steps to set up and run the backend locally.
 Clone the Repository
@@ -24,3 +23,12 @@ cd Synergy-Backend
 Install Dependencies:
 
 npm install
+------
+## Usage:
+
+
+`npm run dev` - Run the development server.
+
+`npm run build` - Builds the server.
+
+`npm start` - Runs the server.
