@@ -37,6 +37,8 @@ const completeQuest : RequestHandler = async (req, res) => {
     }catch (e) {
         return res.status(409).send({})
     }
+
+
 }
 
 export default completeQuest

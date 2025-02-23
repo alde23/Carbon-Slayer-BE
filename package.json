@@ -15,6 +15,7 @@
     "lint": "npx eslint src"
   },
   "dependencies": {
+    "cloc": "^2.4.0-cloc",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.21.2",
