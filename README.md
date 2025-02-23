@@ -22,7 +22,8 @@ cd Synergy-Backend
 
 Install Dependencies:
 
-npm install
+`npm install`
+
 ------
 ## Usage:
 
